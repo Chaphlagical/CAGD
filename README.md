@@ -1,5 +1,7 @@
 # Computer Aided Geometric Design
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2a51fef2e144633acaadf947fc1bb5c)](https://app.codacy.com/gh/Chaphlagical/CAGD?utm_source=github.com&utm_medium=referral&utm_content=Chaphlagical/CAGD&utm_campaign=Badge_Grade_Settings)
+
 ## Introduction
 
 > **MATH6110P: Computer Aided Geometric Design (Autumn-Winter 2021-2022)**

@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+/Homework/build/*
+/Homework/bin/*
+/Homework/lib/*

@@ -20,9 +20,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
+      
+      - name: Path
+        run: cd Homework
 
       - name: Configure
-        run: cmake -H"." -B"build/${{ matrix.platform }}" -DBuild_Test_IlumEngine=OFF
+        run: cmake -H"." -B"build/${{ matrix.platform }}"
 
       - name: "Build ${{ matrix.platform }} in ${{ matrix.build_type }}"
-        run: cmake --build "build/${{ matrix.platform }}" --target App --config ${{ matrix.build_type }} ${{ env.PARALLEL }}
+        run: cmake --build "build/${{ matrix.platform }}" --target BUILD_ALL --config ${{ matrix.build_type }} ${{ env.PARALLEL }}

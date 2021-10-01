@@ -32,4 +32,4 @@ jobs:
         run: cmake -H"." -B"build/${{ matrix.platform }}"
 
       - name: "Build ${{ matrix.platform }} in ${{ matrix.build_type }}"
-        run: cmake --build "build/${{ matrix.platform }}" --target BUILD_ALL --config ${{ matrix.build_type }} ${{ env.PARALLEL }}
+        run: cmake --build "build/${{ matrix.platform }}" --target ALL_BUILD --config ${{ matrix.build_type }} ${{ env.PARALLEL }}

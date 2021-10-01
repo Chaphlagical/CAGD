@@ -50,7 +50,7 @@ $$
 $$
 \begin{align}
 \pmb f(t)&=\sum_{i=0}^nB_i^{(n)}(t)\pmb p_i\\\\
-&=\sum_{i=0}^n\left(\begin{matrix}n\\i\end{matrix} \right)t^i(1-t)^{n-i}\pmb p_i
+&=\sum_{i=0}^n\left(\begin{matrix}n\\\\i\end{matrix} \right)t^i(1-t)^{n-i}\pmb p_i
 \end{align}
 $$
 

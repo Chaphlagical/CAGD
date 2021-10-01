@@ -24,6 +24,9 @@ jobs:
       - name: Path
         run: cd Homework
 
+      - name: Check
+        run: ls
+
       - name: Configure
         run: cmake -H"." -B"build/${{ matrix.platform }}"
 

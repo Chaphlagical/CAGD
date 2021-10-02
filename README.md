@@ -10,6 +10,14 @@
 >
 > **Webpage**: [ http://staff.ustc.edu.cn/~renjiec/Courses/CAGD_2021S1/default.htm](http://staff.ustc.edu.cn/~renjiec/CAGD_2021S1/default.htm)
 
+## Notes
+
+* Data Fitting
+* Bézier Curve
+* Curve Differential Geometry
+* Bézier Spline
+* B Spline
+
 ## Assignments
 
 ### Homework#1: Data Interpolation

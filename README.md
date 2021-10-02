@@ -10,6 +10,17 @@
 >
 > **Webpage**: [ http://staff.ustc.edu.cn/~renjiec/Courses/CAGD_2021S1/default.htm](http://staff.ustc.edu.cn/~renjiec/CAGD_2021S1/default.htm)
 
+## Build
+
+* Visual Studio 2019
+* CMake >= 3.14
+
+```
+git clone https://github.com/Chaphlagical/CAGD --recursive
+```
+
+`Configure`, `Generate`, and run `Homework`
+
 ## Assignments
 
 ### Homework#1: Data Interpolation

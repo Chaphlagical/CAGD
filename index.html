@@ -404,6 +404,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -451,6 +458,45 @@
 <li>Windows 10</li>
 <li>Visual Studio 2019 or download <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe">redistributable</a></li>
 </ul>
+<p>Download: <a href="">Link</a></p>
+<h2 id="demo">Demo</h2>
+<p><strong>Data Interpolation</strong>
+$$
+\begin{pmatrix}
+        \varphi_1(x_1) &amp; \varphi_2(x_1) &amp; \cdots &amp; \varphi_n(x_1)\\
+        \varphi_1(x_2) &amp; \varphi_2(x_2) &amp; \cdots &amp; \varphi_n(x_2)\\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+        \varphi_1(x_n) &amp; \varphi_2(x_n) &amp; \cdots &amp; \varphi_n(x_n)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \alpha_1\\\alpha_2\\\vdots\\\alpha_n
+    \end{pmatrix}=
+    \begin{pmatrix}
+        y_1\\y_2\\\vdots\\y_n
+    \end{pmatrix}
+$$</p>
+<p><img alt="" src="index/interpolation.png" /></p>
+<p><strong>Bézier Curve(De Casteljau Algorithm)</strong>
+$$
+\begin{aligned}
+        \begin{matrix}
+            \pmb b^0_i(t)=\pmb b_i,&amp;i=0,\cdots,n
+        \end{matrix}\\
+        \pmb b_i^r(t)=(1-t)\pmb b_i^{r-1}(t)+t\pmb b_{i+1}^{r-1}(t)\\
+        \begin{matrix}
+            r=1,\cdots,n&amp;i=0,\cdots,n-r
+        \end{matrix}
+    \end{aligned}
+$$</p>
+<p><img alt="" src="index/bezier1.png" /></p>
+<p><strong>Bézier Curve(Bernstein Basis)</strong>
+$$
+\begin{align}
+\pmb f(t)&amp;=\sum_{i=0}^nB_i^{(n)}(t)\pmb p_i\\
+&amp;=\sum_{i=0}^n\left(\begin{matrix}n\\i\end{matrix} \right)t^i(1-t)^{n-i}\pmb p_i
+\end{align}
+$$</p>
+<p><img alt="" src="index/bezier2.png" /></p>
                 
               
               

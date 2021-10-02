@@ -10,7 +10,7 @@ $k$阶（$k-1$度）单位B样条基函数表示为：
 
 $$
 N_i^1(t)=\begin{cases}
-1,&i\leq t<i+1\\0,&\mathrm{otherwise}
+1,&i\leq t<i+1\\\\0,&\mathrm{otherwise}
 \end{cases}
 $$
 
@@ -18,7 +18,7 @@ $$
 
 $$
 \begin{align}
-N_i^k(t)&=\dfrac{t-i}{(i+k-1)-i}N_i^{k-1}(t)+\dfrac{(i+k)-t}{(i+k)-(i+1)}N_{i+1}^{k-1}(t)\\
+N_i^k(t)&=\dfrac{t-i}{(i+k-1)-i}N_i^{k-1}(t)+\dfrac{(i+k)-t}{(i+k)-(i+1)}N_{i+1}^{k-1}(t)\\\\
 &=\dfrac{t-i}{k-1}N_i^{k-1}(t)+\dfrac{i+k-t}{k-1}N_{i+1}^{k-1}(t)
 \end{align}
 $$
@@ -36,8 +36,8 @@ $$
 	$$
 	\begin{align}
 	N_i^1(t)&=\begin{cases}
-	1,&t_i\leq t<t_{i+1}\\0,&\mathrm{otherwise}
-	\end{cases}\\
+	1,&t_i\leq t<t_{i+1}\\\\0,&\mathrm{otherwise}
+	\end{cases}\\\\
 	N_{i,k}(t)&=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)
 	
 	\end{align}
@@ -152,10 +152,10 @@ $$
 	
 	$$
 	\begin{matrix}
-	\pmb d_{r-k+1}=\pmb d^0_{r-k+1}\\
-	\pmb d_{r-k+2}=\pmb d^0_{r-k+2}&\pmb d_{r-k+2}^1\\
-	\vdots\\
-	\pmb d_{r-1}=\pmb d_{r-1}^0&\pmb d_{r-1}^1&\cdots&\pmb d_{r-1}^{k-2}\\
+	\pmb d_{r-k+1}=\pmb d^0_{r-k+1}\\\\
+	\pmb d_{r-k+2}=\pmb d^0_{r-k+2}&\pmb d_{r-k+2}^1\\\\
+	\vdots\\\\
+	\pmb d_{r-1}=\pmb d_{r-1}^0&\pmb d_{r-1}^1&\cdots&\pmb d_{r-1}^{k-2}\\\\
 	\pmb d_r=\pmb d_r^0&\pmb d_r^1&\cdots&\pmb d_r^{k-2}&\pmb d_r^{k-1}=\pmb x(t)
 	\end{matrix}
 	$$
@@ -178,7 +178,7 @@ $$
 	
 	$$
 	\begin{align}
-	T&=(t_0,t_1,t_2,t_3,t_4,\cdots,t_{n+2},t_{n+3},t_{n+4},t_{n+5},t_{n+6})\\
+	T&=(t_0,t_1,t_2,t_3,t_4,\cdots,t_{n+2},t_{n+3},t_{n+4},t_{n+5},t_{n+6})\\\\
 	&=(s_0,s_0,s_0,s_0,s_1,\cdots,s_{n-1},s_n,s_n,s_n,s_n)
 	\end{align}
 	$$
@@ -187,9 +187,9 @@ $$
 	
 	$$
 	\begin{align}
-	\pmb x(s_0)&=\pmb k_0=\pmb d_0\\
-	\pmb x(s_i)&=\pmb k_i=N_{i,4}(s_i)\pmb d_i+N_{i+1,4}(s_i)\pmb d_{i+1}+N_{i+2,4}(s_i)\pmb d_{i+2}\\
-	&\mathrm{for}\ i=1,\cdots,n-1\\
+	\pmb x(s_0)&=\pmb k_0=\pmb d_0\\\\
+	\pmb x(s_i)&=\pmb k_i=N_{i,4}(s_i)\pmb d_i+N_{i+1,4}(s_i)\pmb d_{i+1}+N_{i+2,4}(s_i)\pmb d_{i+2}\\\\
+	&\mathrm{for}\ i=1,\cdots,n-1\\\\
 	\pmb x(s_n)&=\pmb k_n=\pmb d_{n+2}
 	\end{align}
 	$$
@@ -202,7 +202,7 @@ $$
 	
 	$$
 	\begin{align}
-	\ddot{\pmb x}(s_0)&=0\Leftrightarrow \dfrac{\pmb d_2-\pmb d_1}{s_2-s_0}=\dfrac{\pmb d_1-\pmb d_0}{s_1-s_0}\\
+	\ddot{\pmb x}(s_0)&=0\Leftrightarrow \dfrac{\pmb d_2-\pmb d_1}{s_2-s_0}=\dfrac{\pmb d_1-\pmb d_0}{s_1-s_0}\\\\
 	\ddot{\pmb x}(s_n)&=0\Leftrightarrow \dfrac{\pmb d_{n+2}-\pmb d_{n+1}}{s_n-s_{n-1}}=\dfrac{\pmb d_{n+1}-\pmb d_n}{s_n-s_{n-2}}
 	\end{align}
 	$$
@@ -211,22 +211,22 @@ $$
 	
 	$$
 	\begin{pmatrix}
-	1\\
-	\alpha_0&\beta_0&\gamma_0\\
-	&\alpha_1&\beta_1&\gamma_1\\
-	&&&\ddots\\
-	&&&&\alpha_{n-1}&\beta_{n-1}&\gamma_{n-1}\\
-	&&&&&\alpha_n&\beta_n&\gamma_n\\
+	1\\\\
+	\alpha_0&\beta_0&\gamma_0\\\\
+	&\alpha_1&\beta_1&\gamma_1\\\\
+	&&&\ddots\\\\
+	&&&&\alpha_{n-1}&\beta_{n-1}&\gamma_{n-1}\\\\
+	&&&&&\alpha_n&\beta_n&\gamma_n\\\\
 	&&&&&&&1
 	\end{pmatrix}
 	\begin{pmatrix}
-	\pmb d_0\\\pmb d_1\\\pmb d_2\\\vdots\\\pmb d_n\\
-	\pmb d_{n+1}\\\pmb d_{n+2}
+	\pmb d_0\\\\\pmb d_1\\\\\pmb d_2\\\\\vdots\\\\\pmb d_n\\\\
+	\pmb d_{n+1}\\\\\pmb d_{n+2}
 	\end{pmatrix}=
 	
 	\begin{pmatrix}
-	\pmb k_0\\\pmb 0\\\pmb k_1\\\vdots\\\pmb k_{n-1}\\
-	\pmb 0\\\pmb k_{n}
+	\pmb k_0\\\\\pmb 0\\\\\pmb k_1\\\\\vdots\\\\\pmb k_{n-1}\\\\
+	\pmb 0\\\\\pmb k_{n}
 	\end{pmatrix}
 	$$
 	
@@ -234,17 +234,17 @@ $$
 	
 	$$
 	\begin{align}
-	\alpha_0&=s_2-s_0\\
-	\beta_0&=-(s_2-s_0)-(s_1-s_0)\\
-	\gamma_0&=s_1-s_0\\
-	\\
-	\alpha_n&=s_n-s_{n-1}\\
-	\beta_n&=-(s_n-s_{n-1})-(s_n-s_{n-2})\\
-	\gamma_n&=s_n-s_{n-2}\\
-	\\
-	\alpha_i&=N_{i,4}(s_i)\\
-	\beta_i&=N_{i+1,4}(s_i)\\
-	\gamma_i&=N_{i+2,4}(s_i)\\
+	\alpha_0&=s_2-s_0\\\\
+	\beta_0&=-(s_2-s_0)-(s_1-s_0)\\\\
+	\gamma_0&=s_1-s_0\\\\
+	\\\\
+	\alpha_n&=s_n-s_{n-1}\\\\
+	\beta_n&=-(s_n-s_{n-1})-(s_n-s_{n-2})\\\\
+	\gamma_n&=s_n-s_{n-2}\\\\
+	\\\\
+	\alpha_i&=N_{i,4}(s_i)\\\\
+	\beta_i&=N_{i+1,4}(s_i)\\\\
+	\gamma_i&=N_{i+2,4}(s_i)\\\\
 	\mathrm{for}&\ i=1,\cdots,n-1
 	\end{align}
 	$$
@@ -258,17 +258,17 @@ $$
 	
 	$$
 	\begin{pmatrix}
-	b_1&c_1&&&0\\
-	a_2&b_2&c_2\\
-	&a_3&b_3&\cdot&\\
-	&&\cdot&\cdot&c_{n-1}\\
+	b_1&c_1&&&0\\\\
+	a_2&b_2&c_2\\\\
+	&a_3&b_3&\cdot&\\\\
+	&&\cdot&\cdot&c_{n-1}\\\\
 	0&&&a_n&b_n
 	\end{pmatrix}
 	\begin{pmatrix}
-	x_1\\x_2\\\vdots\\x_n
+	x_1\\\\x_2\\\\\vdots\\\\x_n
 	\end{pmatrix}=
 	\begin{pmatrix}
-	d_1\\d_2\\\vdots\\d_n
+	d_1\\\\d_2\\\\\vdots\\\\d_n
 	\end{pmatrix}
 	$$
 	
@@ -306,10 +306,10 @@ $$
 	
 	$$
 	\begin{align}
-	\pmb d_0&=\pmb b_0\\
-	\pmb d_1&=\pmb b_1\\
-	\pmb d_i&=\pmb b_{3i-4}+\frac{\Delta_{i-1}}{\Delta_{i-2}}(\pmb b_{3i-4}-\pmb b_{3i-5})\ \mathrm{for}\ i=2,\cdots,n\\
-	\pmb d_{n+1}&=\pmb b_{3n-1}\\
+	\pmb d_0&=\pmb b_0\\\\
+	\pmb d_1&=\pmb b_1\\\\
+	\pmb d_i&=\pmb b_{3i-4}+\frac{\Delta_{i-1}}{\Delta_{i-2}}(\pmb b_{3i-4}-\pmb b_{3i-5})\ \mathrm{for}\ i=2,\cdots,n\\\\
+	\pmb d_{n+1}&=\pmb b_{3n-1}\\\\
 	\pmb d_{n+2}&=\pmb b_{3n}
 	\end{align}
 	$$

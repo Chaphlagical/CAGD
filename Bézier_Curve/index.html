@@ -1,0 +1,1615 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="http://home.ustc.edu.cn/~chaf/B%C3%A9zier_Curve/">
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>Bézier Curve - Computer Aided Geometric Design</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9299cb39.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-151337983-2","mkdocs.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="black">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bezier" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Computer Aided Geometric Design" class="md-header__button md-logo" aria-label="Computer Aided Geometric Design" data-md-component="logo">
+      
+  <img src="../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computer Aided Geometric Design
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bézier Curve
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="black" type="radio" name="__palette" id="__palette_1">
+          <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+          </label>
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <span class="md-header__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </span>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="http://home.ustc.edu.cn/~chaf/en/" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="http://home.ustc.edu.cn/~chaf/zh/" class="md-select__link">
+                    简体中文
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../fitting/" class="md-tabs__link">
+      Data Fitting
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Bézier Curve
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../Curve_Differential_Geometry/" class="md-tabs__link">
+      Curve Differential Geometry
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../B%C3%A9zier_Spline/" class="md-tabs__link">
+      Bézier Spline
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../B_Spline/" class="md-tabs__link">
+      B Spline
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Computer Aided Geometric Design" class="md-nav__button md-logo" aria-label="Computer Aided Geometric Design" data-md-component="logo">
+      
+  <img src="../images/favicon.png" alt="logo">
+
+    </a>
+    Computer Aided Geometric Design
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fitting/" class="md-nav__link">
+        Data Fitting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Bézier Curve
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Bézier Curve
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 曲线的表示
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 曲线的表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1. 隐式表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2. 参数表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 曲线建模举例
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 曲线建模举例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 用幂函数基进行建模
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 一种改进的画法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-de-casteljau" class="md-nav__link">
+    3. De Casteljau算法
+  </a>
+  
+    <nav class="md-nav" aria-label="3. De Casteljau算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 算法描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-de-casteljau" class="md-nav__link">
+    3.3. De Casteljau算法性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bezier" class="md-nav__link">
+    4. Bézier曲线
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bézier曲线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. 期望特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. 仿射不变性
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. 仿射不变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1. 线性不变性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2. 平移不变性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3. 凸包性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-bezier" class="md-nav__link">
+    4.4. Bézier曲线的多项式描述
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4. Bézier曲线的多项式描述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-bernstein" class="md-nav__link">
+    4.4.1. Bernstein基函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-bernstein" class="md-nav__link">
+    4.4.2. Bernstein基函数的性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-bezier" class="md-nav__link">
+    4.5. Bézier曲线的性质
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5. Bézier曲线的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451" class="md-nav__link">
+    4.5.1. 前面提到过的性质：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452" class="md-nav__link">
+    4.5.2. 导数性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-bezierdegree-evaluation" class="md-nav__link">
+    4.6. Bézier曲线升阶（Degree Evaluation）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7. 细分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    4.8. 曲线范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    4.9. 矩阵实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Curve_Differential_Geometry/" class="md-nav__link">
+        Curve Differential Geometry
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B%C3%A9zier_Spline/" class="md-nav__link">
+        Bézier Spline
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B_Spline/" class="md-nav__link">
+        B Spline
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 曲线的表示
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 曲线的表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1. 隐式表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2. 参数表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 曲线建模举例
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 曲线建模举例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1. 用幂函数基进行建模
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2. 一种改进的画法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-de-casteljau" class="md-nav__link">
+    3. De Casteljau算法
+  </a>
+  
+    <nav class="md-nav" aria-label="3. De Casteljau算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1. 动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2. 算法描述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-de-casteljau" class="md-nav__link">
+    3.3. De Casteljau算法性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bezier" class="md-nav__link">
+    4. Bézier曲线
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bézier曲线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. 期望特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. 仿射不变性
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. 仿射不变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1. 线性不变性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2. 平移不变性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3. 凸包性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-bezier" class="md-nav__link">
+    4.4. Bézier曲线的多项式描述
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4. Bézier曲线的多项式描述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-bernstein" class="md-nav__link">
+    4.4.1. Bernstein基函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-bernstein" class="md-nav__link">
+    4.4.2. Bernstein基函数的性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-bezier" class="md-nav__link">
+    4.5. Bézier曲线的性质
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5. Bézier曲线的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451" class="md-nav__link">
+    4.5.1. 前面提到过的性质：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452" class="md-nav__link">
+    4.5.2. 导数性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-bezierdegree-evaluation" class="md-nav__link">
+    4.6. Bézier曲线升阶（Degree Evaluation）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7. 细分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    4.8. 曲线范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    4.9. 矩阵实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="bezier">Bézier曲线</h1>
+<h2 id="1">1. 曲线的表示</h2>
+<h3 id="11">1.1. 隐式表示</h3>
+<p><img alt="image-20200925224832643" src="image-20200925224832643.png" /></p>
+<p>曲线隐式表示为<span class="arithmatex">\(f(x,y)=0\)</span>，该方法有诸多局限性：</p>
+<ul>
+<li>对于同一个<span class="arithmatex">\(x\)</span>横坐标值对应多个纵坐标值</li>
+<li>存在一些位置，导数<span class="arithmatex">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span>没有定义</li>
+<li>关于轴变换非不变</li>
+</ul>
+<h3 id="12">1.2. 参数表示</h3>
+<p>曲线参数表示为<span class="arithmatex">\(c(t)=(x(t),y(t))\)</span></p>
+<ul>
+<li>求值方便</li>
+<li>参数<span class="arithmatex">\(t\)</span>可作为时间进行插值</li>
+<li>曲线可以理解为运动粒子的运动轨迹跟踪</li>
+</ul>
+<h2 id="2">2. 曲线建模举例</h2>
+<h3 id="21">2.1. 用幂函数基进行建模</h3>
+<p>以抛物线<span class="arithmatex">\(\pmb f(t)=\pmb at^2+\pmb bt+\pmb c\)</span>为例</p>
+<p><img alt="image-20200926075113411" src="image-20200926075113411.png" /></p>
+<ul>
+<li>幂函数基的系数缺少直觉上的几何意义</li>
+</ul>
+<h3 id="22">2.2. 一种改进的画法</h3>
+<p><img alt="image-20200926075246774" src="image-20200926075246774.png" /></p>
+<p>其中，</p>
+<ul>
+<li><span class="arithmatex">\(\pmb b_0^1=(1-t)\pmb b_0+t\pmb b_1\)</span></li>
+<li><span class="arithmatex">\(\pmb b_1^1=(1-t)\pmb b_1+t\pmb b_2\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+\pmb b_0^2
+&amp;=(1-t)\pmb b_0^1+t\pmb b_1^1\\\\
+&amp;=(1-t)[(1-t)\pmb b_0+t\pmb b_1]+t[(1-t)\pmb b_1+t\pmb b_2]\\\\
+&amp;=(1-t)^2\pmb b_0+2t(1-t)\pmb b_1+t^2\pmb b_2
+\end{align}
+\]</div>
+<p>以之前的例子
+$$
+\pmb f(t)=\begin{pmatrix}1\\1\end{pmatrix}t^2+\begin{pmatrix}-2\\0\end{pmatrix}t+\begin{pmatrix}1\\0\end{pmatrix}
+$$
+转为上述形式：
+$$
+\pmb f(t)=\begin{pmatrix}1\\0\end{pmatrix}(1-t)^2+\begin{pmatrix}0\\0\end{pmatrix}2t(1-t)+\begin{pmatrix}0\\1\end{pmatrix}t^2
+$$
+在图上表示为</p>
+<p><img alt="image-20200926075801784" src="image-20200926075801784.png" /></p>
+<ul>
+<li>各系数均有相应的几何意义</li>
+<li>更多直觉上的曲线操作</li>
+</ul>
+<p>对于四个控制点，同样有：
+$$
+\begin{matrix}
+\pmb p_0^0(t)=\pmb p_0,&amp;\pmb p_1^0(t)=\pmb p_1,&amp;\pmb p_2^0(t)=\pmb p_2,&amp;\pmb p_3^0(t)=\pmb p_3
+\end{matrix}
+$$
+第一次迭代：
+$$
+\begin{align}
+\pmb p_0^1&amp;=(1-t)\pmb p_0+t\pmb p_1\\
+\pmb p_1^1&amp;=(1-t)\pmb p_1+t\pmb p_2\\
+\pmb p_2^1&amp;=(1-t)\pmb p_2+t\pmb p_3
+\end{align}
+$$
+第二次迭代：
+$$
+\begin{align}
+\pmb p_0^2=(1-t)^2\pmb p_0+2t(1-t)\pmb p_1+t^2\pmb p_2\\
+\pmb p_1^2=(1-t)^2\pmb p_1+2t(1-t)\pmb p_2+t^2\pmb p_3\\
+\end{align}
+$$
+最终得到的曲线方程：
+$$
+\pmb c(t)=(1-t)^3\pmb p_0+3t(1-t)^2\pmb p_1+3t^2(1-t)\pmb p_2+t^3\pmb p_3
+$$</p>
+<h2 id="3-de-casteljau">3. De Casteljau算法</h2>
+<p><img alt="image-20200926081836460" src="image-20200926081836460.png" /></p>
+<h3 id="31">3.1. 动机</h3>
+<ul>
+<li>对给定<span class="arithmatex">\(t\)</span>计算<span class="arithmatex">\(\pmb x(t)\)</span><ul>
+<li>按比例<span class="arithmatex">\(t:(1-t)\)</span>平分控制多边形</li>
+<li>用线连接新点（相邻线段）</li>
+<li>用相同比例进行插值</li>
+<li>迭代，直到只剩下一个点</li>
+</ul>
+</li>
+</ul>
+<h3 id="32">3.2. 算法描述</h3>
+<ul>
+<li>
+<p>输入点：<span class="arithmatex">\(\pmb b_0,\pmb b_1,\cdots,\pmb b_n\in\mathbb R^3\)</span></p>
+</li>
+<li>
+<p>输出曲线：<span class="arithmatex">\(\pmb x(t),t\in [0,1]\)</span></p>
+</li>
+<li>
+<p>对给定<span class="arithmatex">\(t\)</span>进行点<span class="arithmatex">\(\pmb x(t)\)</span>的几何构造</p>
+<div class="arithmatex">\[
+\begin{align}
+\pmb b_i^0(t)&amp;=\pmb b_i,\ \ \ \ i=0,\cdots,n\\\\
+\pmb b_i^r(t)&amp;=(1-t)\pmb b_i^{r-1}(t)+t\pmb b_{i+1}^{r-1}(t)\\\\
+r=&amp;1,\cdots,n\ \ \ \ i=0,\cdots,n-r
+\end{align}
+\]</div>
+</li>
+<li>
+<p>最后，<span class="arithmatex">\(\pmb b_0^n(t)\)</span>为所找的曲线点<span class="arithmatex">\(\pmb x(t)\)</span>在参数值<span class="arithmatex">\(t\)</span>的取值</p>
+</li>
+</ul>
+<p><img alt="image-20200926082655174" src="image-20200926082655174.png" /></p>
+<p>所有系数可写为下三角矩阵：
+$$
+\begin{matrix}
+\pmb b_0=\pmb b_0^0\\
+\pmb b_1=\pmb b_1^0&amp;\pmb b_0^1\\
+\pmb b_2=\pmb b_2^0&amp;\pmb b_1^1&amp;\pmb b_0^2\\
+\pmb b_3=\pmb b_3^0&amp;\pmb b_2^1&amp;\pmb b_1^2&amp;\pmb b_0^3\\
+\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\ddots\\
+\pmb b_{n-1}=\pmb b_{n-1}^0&amp;\pmb b_{n-2}^1&amp;\cdots&amp;\cdots&amp;\cdots&amp;\pmb b_0^{n-1}\\
+\pmb b_n=\pmb b_n^0&amp;\pmb b_{n-1}^1&amp;\cdots&amp;\cdots&amp;\cdots&amp;\pmb b_1^{n-1}&amp;\pmb b_0^n=\pmb x(t)
+\end{matrix}
+$$
+伪代码：</p>
+<p><img alt="image-20200926083251461" src="image-20200926083251461.png" /></p>
+<h3 id="33-de-casteljau">3.3. De Casteljau算法性质</h3>
+<ul>
+<li>
+<p>包含点<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\)</span>的多边形称为<strong>Bézier多边形</strong></p>
+</li>
+<li>
+<p>点<span class="arithmatex">\(\pmb b_i\)</span>称为<strong>Bézier点</strong>（控制点）</p>
+</li>
+<li>
+<p>由Bézier点<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\)</span>和De Casteljau算法所定义的曲线称为Bézier曲线</p>
+</li>
+<li>
+<p>De Casteljau算法是数值稳定的，因为只使用了凸组合</p>
+</li>
+<li>
+<p>De Casteljau算法复杂度</p>
+<ul>
+<li>时间复杂度<span class="arithmatex">\(O(n^2)\)</span></li>
+<li>空间复杂度<span class="arithmatex">\(O(n)\)</span></li>
+<li>其中<span class="arithmatex">\(n\)</span>为Bézier点的数量</li>
+</ul>
+</li>
+<li>
+<p><strong>Bézier曲线的性质</strong></p>
+<ul>
+<li>
+<p>给定Bézier点<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\)</span>和Bézier曲线<span class="arithmatex">\(\pmb x(t)\)</span></p>
+</li>
+<li>
+<p>Bézier曲线是<span class="arithmatex">\(n\)</span>阶多项式曲线</p>
+</li>
+<li>
+<p>端点<span class="arithmatex">\(\pmb x(0)=\pmb b_0,\pmb x(1)=\pmb b_n\)</span>插值，其余的Bézier点仅仅是大致的近似值</p>
+</li>
+<li>
+<p>凸包性质：</p>
+<ul>
+<li>Bézier曲线完全在其Bézier多边形的凸包内部</li>
+</ul>
+</li>
+<li>
+<p>变化减少</p>
+<ul>
+<li>没有直线与Bézier曲线的交点比Bézier多边形多</li>
+</ul>
+</li>
+<li>
+<p>Bézier点的影响：全局但伪局部</p>
+<ul>
+<li>全局：移动Bézier点会改变整个曲线的形状</li>
+<li>伪局部：点<span class="arithmatex">\(\pmb b_i\)</span>对<span class="arithmatex">\(x(t)\)</span>在<span class="arithmatex">\(t=\dfrac{i}{n}\)</span>有最大的影响</li>
+</ul>
+</li>
+<li>
+<p>仿射不变性</p>
+<ul>
+<li>Bézier曲线和Bézier多边形在仿射变换下不变</li>
+</ul>
+</li>
+<li>
+<p>仿射参数变换不变性</p>
+</li>
+<li>
+<p>对称性</p>
+<ul>
+<li>以下两条Bézier曲线重合，它们仅在相反的方向上移动：</li>
+</ul>
+<div class="arithmatex">\[
+\begin{matrix}
+\pmb x(t)=[\pmb b_0,\cdots,\pmb b_n]&amp;
+\pmb x'(t)=[\pmb b_n,\cdots,\pmb b_0]
+\end{matrix}
+\]</div>
+</li>
+<li>
+<p>线性精确</p>
+<ul>
+<li>当<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\)</span>共线时，Bézier曲线为线段</li>
+</ul>
+</li>
+<li>
+<p>重心组合下的不变性</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-bezier">4. Bézier曲线</h2>
+<p>Bézier曲线表示为基函数组合：
+$$
+\pmb x(t)=\sum\limits_{i=0}^n\pmb B_i^n(t)\cdot b_i
+$$</p>
+<h3 id="41">4.1. 期望特性</h3>
+<ul>
+<li>对基底的要求：<ul>
+<li>良好性质的曲线<ul>
+<li><strong>光滑</strong>的基函数</li>
+</ul>
+</li>
+<li><strong>局部控制</strong>（或者至少半局部）<ul>
+<li>紧致的基函数</li>
+</ul>
+</li>
+<li><strong>仿射不变性</strong><ul>
+<li>对控制点或曲线进行仿射变换<span class="arithmatex">\(\pmb x=A\pmb x+b\)</span>应该有相同的效果</li>
+<li>例如：旋转、平移</li>
+<li>否则交互式编辑曲线将非常困难</li>
+</ul>
+</li>
+<li><strong>凸包性质</strong><ul>
+<li>曲线处于其控制点的凸包内</li>
+<li>至少能够避免奇怪的震荡</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>计算优势（递归相交测试）</li>
+<li>更多可预测的行为</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="42">4.2. 仿射不变性</h3>
+<ul>
+<li>仿射变换：<span class="arithmatex">\(\pmb x\rightarrow A\pmb x+\pmb b\)</span></li>
+</ul>
+<h4 id="421">4.2.1. 线性不变性</h4>
+<p>Bézier曲线的线性不变性是显然的，Bézier曲线表示为基函数的线性组合：
+$$
+\pmb f(t)=\sum\limits_{i=1}^nb_i(t)\pmb p_i=\sum\limits_{i=1}^nb_i(t)\begin{pmatrix}
+p_i^{(x)}\\p_i^{(y)}\\p_i^{(z)}
+\end{pmatrix}
+$$
+因此
+$$
+A(\pmb f(t))=A\Big(\sum\limits_{i=1}^nb_i(t)\pmb p_i \Big)=\sum\limits_{i=1}^nb_i(t)(A\pmb p_i)
+$$</p>
+<h4 id="422">4.2.2. 平移不变性</h4>
+<div class="arithmatex">\[
+\sum\limits_{i=1}^nb_i(t)(\pmb p_i+\pmb b)=\sum\limits_{i=1}^nb_i(t)\pmb p_i+\sum\limits_{i=1}^nb_i(t)\pmb b=\pmb f(t)+\Big(\sum\limits_{i=1}^nb_i(t)\Big)\pmb b
+\]</div>
+<ul>
+<li>为了满足平移不变性，基函数的和应恒为1</li>
+<li>这也称为"partition of unity property"，单位划分性质</li>
+<li><span class="arithmatex">\(\pmb b_i\)</span>是控制点<span class="arithmatex">\(\pmb p_i\)</span>的“仿射组合”</li>
+<li>该性质对建模非常重要</li>
+</ul>
+<h3 id="43">4.3. 凸包性质</h3>
+<ul>
+<li>
+<p><strong>凸组合</strong></p>
+<ul>
+<li>
+<p>点集<span class="arithmatex">\(\{\pmb p_1,\cdots,\pmb p_n\}\)</span>的一个凸组合为如下形式</p>
+<div class="arithmatex">\[
+\sum\limits_{i=1}^n\lambda_i\pmb p_i\ \mathrm{with}\sum\limits_{i=1}^n\lambda_i=1\ \mathrm{and}\ \forall i=1,\cdots,n:0\leq\lambda_i\leq 1
+\]</div>
+</li>
+<li>
+<p>所有允许的凸组合的集合形成点集的凸包</p>
+<ul>
+<li>凸包是包含所有点集<span class="arithmatex">\(\{\pmb p_1,\cdots,\pmb p_n\}\)</span>以及集合中两个元素之间的每条完整连线的最小集合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>相应地</p>
+<ul>
+<li>
+<p>如果我们有性质：</p>
+<div class="arithmatex">\[
+\forall t\in\Omega:\sum\limits_{i=1}^nb_i(t)=1\ \mathbb {and}\ \forall t\in\Omega,\forall i:b_i(t)\geq 0
+\]</div>
+<p>所构造地曲线/曲面将满足：</p>
+<ul>
+<li>仿射不变性（平移，线性映射）</li>
+<li>限制在控制点的凸包中</li>
+</ul>
+</li>
+<li>
+<p>推论：曲线将有<strong>linear precision</strong>（线性精确）</p>
+<ul>
+<li>当所有控制点共线时，曲线为直线段</li>
+<li>具有平面控制点的曲面也将是平面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>凸包性质在实践中十分有用</p>
+<ul>
+<li>避免不良震荡<ul>
+<li>被限制在凸包内，不像多项式插值</li>
+</ul>
+</li>
+<li>线性精确性质比较直观（用户友好）</li>
+<li>可用于快速范围检查<ul>
+<li>相交测试可以先对凸包进行，然后再对物体进行</li>
+<li>递归相交算法与细分规则结合使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="44-bezier">4.4. Bézier曲线的多项式描述</h3>
+<ul>
+<li>
+<p>给定<span class="arithmatex">\((n+1)\)</span>个控制点<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\)</span></p>
+</li>
+<li>
+<p>目标：Bézier曲线<span class="arithmatex">\(\pmb x(t)\)</span>，其中<span class="arithmatex">\(t\in[0,1]\)</span></p>
+</li>
+<li>
+<p>定义<span class="arithmatex">\(n+1\)</span>个基函数，通过其线性组合来描述一个Bézier曲线</p>
+<div class="arithmatex">\[
+B_0^n(t),\cdots,B_n^n(t)\ \mathbb{over}\ [0,1]
+\]</div>
+<div class="arithmatex">\[
+\pmb x(t)=\sum\limits_{i=0}^nB_i^n(t)\cdot\pmb b_i
+\]</div>
+</li>
+</ul>
+<h4 id="441-bernstein">4.4.1. Bernstein基函数</h4>
+<p>Bernstein基函数：<span class="arithmatex">\(B=\{B_0^{(n)},B_1^{(n)},\cdots,B_n^{(n)} \}\)</span></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(n\)</span>次Bernstein基函数</p>
+<div class="arithmatex">\[
+B_i^{(n)}(t)=\begin{pmatrix}n\\\\ i\end{pmatrix}
+t^i(1-t)^{n-i}
+\]</div>
+<p>其中，二项式系数</p>
+<div class="arithmatex">\[
+\begin{pmatrix}n\\\\i\end{pmatrix}=
+\begin{cases}
+\dfrac{n!}{(n-i)!!}&amp;\mathrm {for}\ 0\leq i\leq n\\\\
+0&amp;\mathrm{otherwise}
+\end{cases}
+\]</div>
+<p>杨氏三角：</p>
+<p><img alt="image-20200926104718349" src="image-20200926104718349.png" /></p>
+<p>前三组Bernstein基函数</p>
+<p><img alt="image-20200926105126868" src="image-20200926105126868.png" /></p>
+</li>
+</ul>
+<h4 id="442-bernstein">4.4.2. Bernstein基函数的性质</h4>
+<div class="arithmatex">\[
+B=\{B_0^{(n)},B_1^{(n)},\cdots,B_n^{(n)}\},\ \ \ \
+B_i^{(n)}=\begin{pmatrix}n\\\\i\end{pmatrix}t^i(1-t)^{n-i}
+\]</div>
+<p><strong>光滑性</strong></p>
+<p>基函数为<span class="arithmatex">\(n\)</span>次多项式——显然光滑</p>
+<p><strong>局部控制</strong></p>
+<p>每个基函数<span class="arithmatex">\(B_i^{(n)}\)</span>在<span class="arithmatex">\(t=\dfrac{i}{n}\)</span>处取最大值——对该处有最大影响</p>
+<p><strong>凸包性质和仿射不变性</strong></p>
+<p>组合数的性质：</p>
+<div class="arithmatex">\[
+\sum\limits_{i=0}^nB_i^{(n)}(t)=(t+(1-t))^n=1
+\]</div>
+<p><strong>递归计算特性</strong></p>
+<div class="arithmatex">\[
+B_i^n(t):=(1-t)B_i^{(n-1)}(t)+tB_{i-1}^{(n-1)}(1-t)\\\\
+\mathrm{with}\ B_0^0(t)=1,B_i^n(t)=0\ \mathrm {for}\ i\not\in\{0,\cdots,n\}
+\]</div>
+<p><strong>对称性</strong></p>
+<div class="arithmatex">\[
+B_i^n(t)=B_{n-i}^n(1-t)
+\]</div>
+<p><strong>非负性</strong>
+$$
+B_i^{(n)}(t)\geq 0\ \mathrm{for}\ t\in[0,\cdots,1]
+$$</p>
+<div class="arithmatex">\[
+B_i^{(n)}(t)&gt;0\ \mathrm{for}\ 0&lt;t&lt;1
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+B_0^{(n)}(0)=1,\ \ \ \ B_1^{(n)}(0)=\cdots=B_n^{(n)}(0)=0\\\\
+B_0^{(n)}(1)=\cdots=B_{n-1}^{(n)}=0,\ \ \ \ B_n^{(n)}(1)=1
+\end{align}
+\]</div>
+<p><strong>导数</strong></p>
+<div class="arithmatex">\[
+\begin{align}
+\dfrac{\mathrm d}{\mathrm dt}B_i^{(n)}(t)&amp;=\begin{pmatrix}
+n\\\\i\end{pmatrix}(it^{i-1}(1-t)^{n-i}-(n-i)t^i(1-t)^{n-i-1})\\\\
+&amp;=\dfrac{n!}{(n-i)!i!}it^{i-1}(1-t)^{n-i}-\dfrac{n!}{(n-i)!i!}(n-i)t^i(1-t)^{n-i-1}\\\\
+&amp;=n\Bigg[\begin{pmatrix}n-1\\\\i-1\end{pmatrix}t^{i-1}(1-t)^{n-i}-\begin{pmatrix}n-1\\\\i\end{pmatrix}t^i(1-t)^{n-i-1} \Bigg]\\\\
+&amp;=n\Big[B^{(n-1)}_{i-1}(t)-B_i^{(n-1)}(t)\Big]\\\\
+\dfrac{\mathrm d^2}{\mathrm dt^2}B_i^{(n)}(t)&amp;=\dfrac{\mathrm d}{\mathrm dt}\Big[B_{i-1}^{(n-1)}(t)-B_i^{(n-1)}(t) \Big]\\\\
+&amp;=n\Big[(n-1)\Big(B_{i-2}^{(n-2)}(t)-B_{i-1}^{(n-2)}(t) \Big)-(n-1)\Big(B_{i-1}^{(n-2)}(t)-B_i^{(n-2)}(t) \Big) \Big]\\\\
+&amp;=n(n-1)\Big[B_{i-2}^{(n-2)}(t)-2B_{i-2}^{(n-2)}(t)+B_i^{(n-2)}(t) \Big]
+\end{align}
+\]</div>
+<h3 id="45-bezier">4.5. Bézier曲线的性质</h3>
+<h4 id="451">4.5.1. 前面提到过的性质：</h4>
+<ul>
+<li>
+<p>仿射不变性</p>
+</li>
+<li>
+<p>凸包性质</p>
+</li>
+<li>
+<p>控制点影响性</p>
+</li>
+</ul>
+<h4 id="452">4.5.2. 导数性质</h4>
+<p>对于<span class="arithmatex">\(t\in[0,1]\)</span>，有</p>
+<p>$$
+\pmb f(t)=\sum\limits_{i=0}^{n-1}\begin{pmatrix}n\\i\end{pmatrix}t^i(1-t)^{n-i}\pmb p_i\\
+\Rightarrow \pmb f(0)=\pmb p_0\ \ \ \ 
+\pmb f(1)=\pmb p_1
+$$
+一阶导数</p>
+<div class="arithmatex">\[
+\begin{align}
+\dfrac{\mathrm d}{\mathrm dt}\pmb f(t)&amp;=n\sum\limits_{i=0}^{n-1}\Big[B_{i-1}^{(n-1)}(t)-B_i^{(n-1)}(t) \Big]\pmb p_i\\\\
+&amp;=n\Big(\Big[-B_0^{(n-1)}(t) \Big]\pmb p_0+\Big[B_0^{n-1}(t)-B_1^{(n-1)}(t) \Big]\pmb p_1+\cdots\Big)
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{matrix}
+\dfrac{\mathrm d}{\mathrm dt}\pmb f(0)=n(\pmb p_1-\pmb p_0)&amp;\dfrac{\mathrm d}{\mathrm dt}\pmb f(1)=n(\pmb p_n-\pmb p_{n-1})
+\end{matrix}
+\]</div>
+<p>以此类推，对于边界点<span class="arithmatex">\(\{0,1\}\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{align}
+\pmb f(0)&amp;=\pmb p_0\\\\
+\pmb f(1)&amp;=\pmb p_1\\\\
+\pmb f'(0)&amp;=n[\pmb p_1-\pmb p_0]\\\\
+\pmb f'(1)&amp;=n[\pmb p_n-\pmb p_{n-1}]\\\\
+\pmb f''(0)&amp;=n(n-1)[\pmb p_2-2\pmb p_1+\pmb p_0]\\\\
+\pmb f''(1)&amp;=n(n-1)[\pmb p_n-2\pmb p_{n-1}+\pmb p_{n-2}]
+\end{align}
+\]</div>
+<p>对于一阶导数，还有：
+$$
+\begin{align}
+\pmb f'(t)&amp;=\sum_{i=0}^n\dfrac{\mathrm d}{\mathrm dt}B_i^{(n)}(t)\pmb p_i\\
+&amp;=n\sum_{i=0}^n\Big(B_{i-1}^{(n-1)}(t)-B_i^{(n-1)}(t) \Big)\pmb p_i\\
+&amp;=n\sum_{i=0}^nB_{i-1}^{(n-1)}(t)\pmb p_i-n\sum_{i=0}^nB_i^{(n-1)}(t)\pmb p_i\\
+&amp;=n\sum_{i=-1}^{n-1}B_i^{(n-1)}(t)\pmb p_{i+1}-n\sum\limits_{i=0}^nB_i^{(n-1)}(t)\pmb p_i\\
+&amp;=n\sum_{i=0}^{n-1}B_i^{(n-1)}(t)\pmb p_{i+1}-n\sum\limits_{i=0}^{n-1}B_i^{(n-1)}(t)\pmb p_i\\
+&amp;=n\sum\limits_{i=0}^{n-1}B_i^{(n-1)}(t)(\pmb p_{i+1}-\pmb p_i)
+\end{align}
+$$
+高阶导数：
+$$
+\pmb f^{[r]}(t)=\dfrac{n!}{(n-r)!}\sum\limits_{i=0}^{n-r}B_i^{(n-r)}(t)\cdot\Delta^r\pmb p_i
+$$</p>
+<h3 id="46-bezierdegree-evaluation">4.6. Bézier曲线升阶（Degree Evaluation）</h3>
+<ul>
+<li>
+<p>给定：<span class="arithmatex">\(\pmb b_0,\cdots,\pmb b_n\rightarrow \pmb x(t)\)</span></p>
+</li>
+<li>
+<p>目标：<span class="arithmatex">\(\overline{\pmb b}_0,\cdots,\overline{\pmb b_n},\overline{\pmb b}_{n+1}\rightarrow \overline{\pmb x}(t)\ \mathrm{with}\ \pmb x=\overline{\pmb x}\)</span></p>
+</li>
+<li>
+<p>解决方法：</p>
+<div class="arithmatex">\[
+\begin{align}
+\overline{\pmb b}_0&amp;=\pmb b_0\\\\
+\overline{\pmb b}_{n+1}&amp;=\pmb b_n\\\\
+\overline{\pmb b}_j&amp;=\dfrac{j}{n+1}\pmb b_{j-1}+\Big(1-\dfrac{j}{n+1}\Big)\pmb b_j\ \mathrm{for}\ j=1,\cdots,n
+\end{align}
+\]</div>
+</li>
+<li>
+<p>证明：</p>
+<p>考虑</p>
+<div class="arithmatex">\[
+\begin{align}
+(1-t)B_i^n(t)&amp;=(1-t)\begin{pmatrix}n\\\\i\end{pmatrix}
+(1-t)^{n-i}t^i\\\\
+&amp;=\begin{pmatrix}n\\\\i\end{pmatrix}(1-t)^{n+1-i}t^i\\\\
+&amp;=\dfrac{n+1-i}{n+1}\begin{pmatrix}n+1\\\\i\end{pmatrix}(1-t)^{n+1-i}t^i\\\\
+&amp;=\dfrac{n+1-i}{n+1}B_i^{n+1}(t)
+\end{align}
+\]</div>
+<p>类似地，</p>
+<div class="arithmatex">\[
+tB_i^n(t)=\dfrac{i+1}{n+1}B_i^{n+1}(t)
+\]</div>
+<p>从而有：</p>
+<div class="arithmatex">\[
+\begin{align}
+\pmb f(t)&amp;=[(1-t)+t]\pmb f(t)\\\\
+&amp;=[(1-t)+t]\sum\limits_{i=0}^nB_i^n(t)\pmb P_i\\\\
+&amp;=\sum\limits_{i=0}^n\Big[(1-t)B_i^n(t)+tB_i^n(t)\Big]\pmb P_i\\\\
+&amp;=\sum\limits_{i=0}^n\Bigg[\dfrac{n+1-i}{n+1}B_i^{n+1}(t)+\dfrac{i+1}{n+1}B_{i+1}^{n+1}(t) \Bigg]\pmb P_i\\\\
+&amp;=\sum\limits_{i=0}^n\dfrac{n+1-i}{n+1}B_i^{n+1}(t)\pmb P_i+\sum\limits_{i=0}^n\dfrac{i+1}{n+1}B_{i+1}^{n+1}(t) \pmb P_i\\\\
+&amp;=\sum\limits_{i=0}^n\dfrac{n+1-i}{n+1}B_i^{n+1}(t)\pmb P_i+\sum\limits_{i=1}^n\dfrac{i}{n+1}B_{i}^{n+1}(t) \pmb P_{i-1}\\\\
+&amp;=\sum\limits_{i=0}^{n+1}\dfrac{n+1-i}{n+1}B_i^{n+1}(t)\pmb P_i+\sum\limits_{i=0}^n\dfrac{i}{n+1}B_{i}^{n+1}(t) \pmb P_{i-1}\\\\
+&amp;=\sum\limits_{i=0}^{n+1}B_i^{n+1}(t)\Bigg[\dfrac{n+1-i}{n+1}\pmb P_i+\dfrac{i}{n+1}\pmb P_{i-1} \Bigg]
+\end{align}
+\]</div>
+</li>
+</ul>
+<h3 id="47">4.7. 细分</h3>
+<ul>
+<li>
+<p>给定</p>
+<div class="arithmatex">\[
+\pmb b_0,\cdots,\pmb b_n\rightarrow \pmb x(t),t\in[0,1]
+\]</div>
+</li>
+<li>
+<p>目标</p>
+<div class="arithmatex">\[
+\pmb b_0^{(1)},\cdots,\pmb b_n^{(1)}\rightarrow \pmb x^{(1)}(t)\\\\
+\pmb b_0^{(2)},\cdots,\pmb b_n^{(2)}\rightarrow \pmb x^{(2)}(t)\\\\
+\\\\
+\mathrm{with}\quad \pmb x=\pmb x^{(1)}\cup\pmb x^{(2)}
+\]</div>
+</li>
+<li>
+<p>解决方法</p>
+<p><img alt="image-20200927090406281" src="image-20200927090406281.png" />
+$$
+\pmb b_i^{(1)}=\pmb b_0^i,\pmb b_i^{(2)}=\pmb b_0^{n-i}\ \mathrm{for}\ i=0,\cdots,n
+$$</p>
+</li>
+</ul>
+<h3 id="48">4.8. 曲线范围</h3>
+<p><img alt="image-20200927095337922" src="image-20200927095337922.png" /></p>
+<p><img alt="image-20200927100143043" src="image-20200927100143043.png" /></p>
+<h3 id="49">4.9. 矩阵实现</h3>
+<p><strong>三次Bézier曲线</strong></p>
+<div class="arithmatex">\[
+\pmb P(t)=\pmb V_0B_{0,3}+\pmb V_1B_{1,3}+\pmb V_2B_{2,3}+\pmb V_3B_{3,3}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+B_{0,3}&amp;=\dfrac{3!}{0!3!}t^0(1-t)^3=(1-t)^3\\\\
+B_{1,3}&amp;=\dfrac{3!}{1!2!}t^1(1-t)^2=3t(1-t)^2\\\\
+B_{2,3}&amp;=\dfrac{3!}{2!1!}t^2(1-t)^1=3t^2(1-t)\\\\
+B_{3,3}&amp;=\dfrac{3!}{3!0!}t^3(1-t)^0=t^3
+\end{align}
+\]</div>
+<p>矩阵形式表示：</p>
+<div class="arithmatex">\[
+\pmb P(t)=\begin{bmatrix}t^3&amp;t^2&amp;t&amp;1\end{bmatrix}
+\begin{pmatrix}
+-1&amp;3&amp;-3&amp;1\\\\3&amp;-6&amp;3&amp;0\\\\-3&amp;0&amp;3&amp;0\\\\1&amp;4&amp;1&amp;0
+\end{pmatrix}
+\begin{bmatrix}
+V_{i-1}\\\\V_i\\\\V_{i+1}\\\\V_{i+2}
+\end{bmatrix}
+\]</div>
+<p>导数的矩阵表示：</p>
+<div class="arithmatex">\[
+\pmb P'(t)=\begin{bmatrix}3t^2&amp;2t&amp;1&amp;0\end{bmatrix}
+\begin{pmatrix}
+-1&amp;3&amp;-3&amp;1\\\\3&amp;-6&amp;3&amp;0\\\\-3&amp;0&amp;3&amp;0\\\\1&amp;4&amp;1&amp;0
+\end{pmatrix}
+\begin{bmatrix}
+V_{i-1}\\\\V_i\\\\V_{i+1}\\\\V_{i+2}
+\end{bmatrix}
+\]</div>
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="http://home.ustc.edu.cn/~chaf/B%C3%A9zier_Curve/",this.page.identifier="B%C3%A9zier_Curve/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//home-ustc-edu-cn-chaf.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../fitting/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Data Fitting
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../Curve_Differential_Geometry/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Curve Differential Geometry
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:chaf@mail.ustc.edu.cn" target="_blank" rel="noopener" title="Wenbo Chen&#39;s email" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://twitter.com/chen_418199378" target="_blank" rel="noopener" title="Wenbo Chen on Twitter" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://github.com/Chaphlagical" target="_blank" rel="noopener" title="Wenbo Chen&#39;s github" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://www.instagram.com/chaphlagical/" target="_blank" rel="noopener" title="Wenbo Chen&#39;s instagram" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://steamcommunity.com/profiles/76561198855701848/" target="_blank" rel="noopener" title="Wenbo Chen&#39;s steam" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.79 52.79 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://wpa.qq.com/msgrd?v=3&uin=418199378&site=qqq&menu=yes" target="_blank" rel="noopener" title="Wenbo Chen&#39;s qq" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://www.zhihu.com/people/chaf-86" target="_blank" rel="noopener" title="Wenbo Chen&#39;s zhihu" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13H170.54zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82v170.31zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62v.01zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2l19.23 14.43zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78l.03-.01z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://www.youtube.com/channel/UC6izbcXMuip_qYlw50QZvmA" target="_blank" rel="noopener" title="Wenbo Chen&#39;s youtube" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://www.facebook.com/chaf.chen.3" target="_blank" rel="noopener" title="Wenbo Chen&#39;s facebook" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+      <a href="https://scholar.google.com/citations?user=lD3dpIQAAAAJ&hl=en" target="_blank" rel="noopener" title="Wenbo Chen&#39;s google scholar" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tables.js"></script>
+      
+    
+  </body>
+</html>

@@ -6,28 +6,11 @@
 
 namespace Chaf
 {
-	struct DrawData
-	{
-		std::vector<glm::f64vec2> pos;
-
-		std::vector<double> inter_x;
-		std::vector<double> polynomial;
-		std::vector<double> RBF;
-
-		glm::f64vec2 range;
-		glm::f64vec2 width;
-
-		double step = 0.1f;
-
-		bool need_update = false;
-	};
-
-
-	class CAGDLayer : public Layer
+	class HW1Layer : public Layer
 	{
 	public:
-		CAGDLayer();
-		virtual ~CAGDLayer() = default;
+		HW1Layer();
+		virtual ~HW1Layer() = default;
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
@@ -37,6 +20,22 @@ namespace Chaf
 		virtual void OnEvent(Event& event) override;
 
 	private:
+		struct DrawData
+		{
+			std::vector<glm::f64vec2> pos;
+
+			std::vector<double> inter_x;
+			std::vector<double> polynomial;
+			std::vector<double> RBF;
+
+			glm::f64vec2 range;
+			glm::f64vec2 width;
+
+			double step = 0.1f;
+
+			bool need_update = false;
+		};
+
 		DrawData m_Data;
 
 		bool m_EnablePolynomial = true;

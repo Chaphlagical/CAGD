@@ -8,19 +8,11 @@ struct ImPlotPoint;
 
 namespace Chaf
 {
-	struct DrawData
-	{
-		std::vector<double> control_x;
-		std::vector<double> control_y;
-		std::vector<double> curve_x;
-		std::vector<double> curve_y;
-	};
-
-	class CAGDLayer : public Layer
+	class HW3Layer : public Layer
 	{
 	public:
-		CAGDLayer();
-		virtual ~CAGDLayer() = default;
+		HW3Layer();
+		virtual ~HW3Layer() = default;
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
@@ -30,6 +22,14 @@ namespace Chaf
 		virtual void OnEvent(Event& event) override;
 
 	private:
+		struct DrawData
+		{
+			std::vector<double> control_x;
+			std::vector<double> control_y;
+			std::vector<double> curve_x;
+			std::vector<double> curve_y;
+		};
+
 		DrawData m_Data;
 		bool m_Updated = false;
 		int m_Samples = 1000;

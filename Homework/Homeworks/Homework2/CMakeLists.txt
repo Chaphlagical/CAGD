@@ -1,5 +1,5 @@
 SetTarget(
-    MODE EXE
+    MODE STATIC
     TARGET_NAME Homework2
     DEFINE
         PROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR}/"

@@ -1,4 +1,4 @@
-#include "CAGDLayer.h"
+#include "HW1Layer.h"
 #include "polynomial.h"
 #include "RBF.h"
 
@@ -8,21 +8,21 @@
 
 namespace Chaf
 {
-	CAGDLayer::CAGDLayer()
+	HW1Layer::HW1Layer()
 	{
 	}
 
-	void CAGDLayer::OnAttach()
+	void HW1Layer::OnAttach()
 	{
 		ImPlot::CreateContext();
 	}
 
-	void CAGDLayer::OnDetach()
+	void HW1Layer::OnDetach()
 	{
 		ImPlot::DestroyContext();
 	}
 
-	void CAGDLayer::OnUpdate(Timestep timestep)
+	void HW1Layer::OnUpdate(Timestep timestep)
 	{
 		if (m_Data.need_update)
 		{
@@ -48,7 +48,7 @@ namespace Chaf
 		}
 	}
 
-	void CAGDLayer::OnImGuiRender()
+	void HW1Layer::OnImGuiRender()
 	{
 		auto* window = Application::Get().GetWindow().GetNativeWindow();
 
@@ -128,7 +128,7 @@ namespace Chaf
 		ImGui::End();
 	}
 
-	void CAGDLayer::OnEvent(Event& event)
+	void HW1Layer::OnEvent(Event& event)
 	{
 
 	}

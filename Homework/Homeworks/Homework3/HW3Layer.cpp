@@ -1,26 +1,26 @@
-#include "CAGDLayer.h"
+#include "HW3Layer.h"
 #include "BezierCurve.h"
 
 #include <implot.h>
 
 namespace Chaf
 {
-	CAGDLayer::CAGDLayer()
+	HW3Layer::HW3Layer()
 	{
 
 	}
 
-	void CAGDLayer::OnAttach()
+	void HW3Layer::OnAttach()
 	{
 		ImPlot::CreateContext();
 	}
 
-	void CAGDLayer::OnDetach()
+	void HW3Layer::OnDetach()
 	{
 		ImPlot::DestroyContext();
 	}
 
-	void CAGDLayer::OnUpdate(Timestep timestep)
+	void HW3Layer::OnUpdate(Timestep timestep)
 	{
 		if (m_Updated && m_Data.control_x.size() > 1)
 		{
@@ -29,9 +29,9 @@ namespace Chaf
 		}
 	}
 
-	void CAGDLayer::OnImGuiRender()
+	void HW3Layer::OnImGuiRender()
 	{
-		ImGui::Begin("Homework 2");
+		ImGui::Begin("Homework 3");
 
 		if (ImGui::Button("Clear"))
 		{
@@ -58,6 +58,8 @@ namespace Chaf
 		{
 			uint32_t index = 0;
 			ImPlotStyle& style = ImPlot::GetStyle();
+
+			//auto& plot_map = ImPlot::GetInputMap();
 
 			for (auto i = 0; i < m_Data.control_x.size(); i++)
 			{
@@ -86,7 +88,7 @@ namespace Chaf
 		ImGui::End();
 	}
 
-	void CAGDLayer::OnEvent(Event& event)
+	void HW3Layer::OnEvent(Event& event)
 	{
 
 	}

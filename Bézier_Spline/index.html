@@ -1057,7 +1057,7 @@
 <p>给定两条曲线</p>
 <div class="arithmatex">\[
 \begin{align}
-&amp;\pmb x_1(t)\ \mathrm{over}\ [t_0,t_1]\\
+&amp;\pmb x_1(t)\ \mathrm{over}\ [t_0,t_1]\\\\
 &amp;\pmb x_2(t)\ \mathrm{over}\ [t_1,t_2]
 \end{align}
 \]</div>
@@ -1092,7 +1092,7 @@
 <p>给定两条曲线</p>
 <div class="arithmatex">\[
 \begin{align}
-&amp;\pmb x_1(t)\ \mathrm{over}\ [t_0,t_1]\\
+&amp;\pmb x_1(t)\ \mathrm{over}\ [t_0,t_1]\\\\
 &amp;\pmb x_2(t)\ \mathrm{over}\ [t_1,t_2]
 \end{align}
 \]</div>
@@ -1163,9 +1163,9 @@
 <h3 id="22-bezier">2.2. Bezier样条曲线的导数</h3>
 <div class="arithmatex">\[
 \begin{align}
-\dot{\pmb x}(t)&amp;=\dot{\pmb y}(u(t))\cdot\dot u(t)=\dfrac{\dot{\pmb y}(u(t))}{t_{i+1}-t_i}\\
-\ddot{\pmb x}(t)&amp;=\ddot{\pmb y}(u(t))\cdot(\dot u(t))^2+\dot{\pmb y}(u(t))\cdot\ddot u(t)=\dfrac{\ddot{\pmb y}(u(t))}{(t_{i+1}-t_i)^2}\\
-\cdots\\
+\dot{\pmb x}(t)&amp;=\dot{\pmb y}(u(t))\cdot\dot u(t)=\dfrac{\dot{\pmb y}(u(t))}{t_{i+1}-t_i}\\\\
+\ddot{\pmb x}(t)&amp;=\ddot{\pmb y}(u(t))\cdot(\dot u(t))^2+\dot{\pmb y}(u(t))\cdot\ddot u(t)=\dfrac{\ddot{\pmb y}(u(t))}{(t_{i+1}-t_i)^2}\\\\
+\cdots\\\\
 \pmb x^{[n]}(t)&amp;=\dfrac{\pmb y^{[n]}(u(t))}{(t_{i+1}-t_i)^n}
 \end{align}
 \]</div>
@@ -1178,8 +1178,8 @@
 <p><span class="arithmatex">\(\{0,1\}\)</span>之间的函数值
     $$
     \begin{align}
-    \pmb f(0)&amp;=\pmb p_0\
-    \pmb f(1)&amp;=\pmb p_1\
+    \pmb f(0)&amp;=\pmb p_0\\
+    \pmb f(1)&amp;=\pmb p_1
     \end{align}
     $$</p>
 </li>
@@ -1187,8 +1187,8 @@
 <p><span class="arithmatex">\(\{0,1\}\)</span>之间的一阶导数向量
     $$
     \begin{align}
-    \pmb f'(0)&amp;=n[\pmb p_1-\pmb p_0]\
-    \pmb f'(1)&amp;=n[\pmb p_n-\pmb p_{n-1}]\
+    \pmb f'(0)&amp;=n[\pmb p_1-\pmb p_0]\\
+    \pmb f'(1)&amp;=n[\pmb p_n-\pmb p_{n-1}]
     \end{align}
     $$</p>
 </li>
@@ -1196,8 +1196,8 @@
 <p><span class="arithmatex">\(\{0,1\}\)</span>之间的二阶导数向量
     $$
     \begin{align}
-    \pmb f''(0)&amp;=n(n-1)[\pmb p_2-2\pmb p_1+\pmb p_0]\
-    \pmb f''(1)&amp;=n(n-1)[\pmb p_n-2\pmb p_{n-1}+\pmb p_{n-2}]\
+    \pmb f''(0)&amp;=n(n-1)[\pmb p_2-2\pmb p_1+\pmb p_0]\\
+    \pmb f''(1)&amp;=n(n-1)[\pmb p_n-2\pmb p_{n-1}+\pmb p_{n-2}]
     \end{align}
     $$</p>
 </li>
@@ -1220,7 +1220,7 @@
 <p>给定两条<span class="arithmatex">\(n\)</span>阶Bezier曲线：
     $$
     \begin{align}
-    \pmb k_{j-1}&amp;=\pmb b_0^-,\pmb b_1^-,\cdots,\pmb b_n^-=\pmb k_j\
+    \pmb k_{j-1}&amp;=\pmb b_0^-,\pmb b_1^-,\cdots,\pmb b_n^-=\pmb k_j\\
     \pmb k_j&amp;=\pmb b_0^+,\pmb b_1^+,\cdots,\pmb b_n^+=\pmb k_{j+1}
     \end{align}
     $$
@@ -1391,7 +1391,7 @@
     \begin{align}
     \pmb k_0,\cdots,\pmb k_n&amp;\in\mathbb R^3\
     t_0,\cdots,t_n&amp;\in\mathbb R\
-    t_i&amp;&lt;t_{i+1}\ \mathrm{for}\ i=0,\cdots,n_1
+    t_i&lt;t_{i+1}\ \mathrm{for}\ &amp;i=0,\cdots,n_1
     \end{align}
     $$</p>
 </li>
@@ -1446,7 +1446,7 @@
 <h4 id="722-natural-end-condition">7.2.2. Natural end condition</h4>
 <div class="arithmatex">\[
 \begin{align}
-\ddot {\pmb x}(t_0)&amp;=0\Leftrightarrow \pmb b_1=\dfrac{\pmb b_2+\pmb b_0}{2}\\
+\ddot {\pmb x}(t_0)&amp;=0\Leftrightarrow \pmb b_1=\dfrac{\pmb b_2+\pmb b_0}{2}\\\\
 \ddot{\pmb x}(t_n)&amp;=0\Leftrightarrow \pmb b_{3n-1}=\dfrac{\pmb b_{3n-2}+\pmb b_{3n}}{2}
 \end{align}
 \]</div>
@@ -1480,7 +1480,11 @@
 <h4 id="735-foley-parameterization">7.3.5. Foley parameterization</h4>
 <ul>
 <li>涉及控制多边形的角度</li>
-<li><span class="arithmatex">\(t_{i+1}-t_i=\Vert\pmb k_{i+1}-\pmb k_i\Vert\cdot\Big(1+\dfrac{3}{2}\dfrac{\hat\alpha_i\Vert\pmb k_i-\pmb k_{i-1}\Vert}{\Vert\pmb k_i-\pmb k_{i-1}\Vert+\Vert\pmb k_{i+1}-\pmb k_i\Vert}+\dfrac{3}{2}\dfrac{\hat\alpha_{i+1}\Vert \pmb k_{i+1}-\pmb k_i\Vert}{\Vert\pmb k_{i+1}-\pmb k_i\Vert+\Vert\pmb k_{i+2}-\pmb k_{i+1}\Vert} \Big)\)</span></li>
+</ul>
+<div class="arithmatex">\[
+t_{i+1}-t_i=\Vert\pmb k_{i+1}-\pmb k_i\Vert\cdot\Big(1+\dfrac{3}{2}\dfrac{\hat\alpha_i\Vert\pmb k_i-\pmb k_{i-1}\Vert}{\Vert\pmb k_i-\pmb k_{i-1}\Vert+\Vert\pmb k_{i+1}-\pmb k_i\Vert}+\dfrac{3}{2}\dfrac{\hat\alpha_{i+1}\Vert \pmb k_{i+1}-\pmb k_i\Vert}{\Vert\pmb k_{i+1}-\pmb k_i\Vert+\Vert\pmb k_{i+2}-\pmb k_{i+1}\Vert} \Big)
+\]</div>
+<ul>
 <li>其中，<span class="arithmatex">\(\hat\alpha_i=\min\Big(\pi-\alpha_i,\dfrac{\pi}{2}\Big)\)</span></li>
 <li>且<span class="arithmatex">\(\alpha_i=\mathrm{angle}(\pmb k_{i-1},\pmb k_i,\pmb k_{i+1})\)</span></li>
 </ul>
@@ -1501,7 +1505,7 @@
 <p>分段三次曲线的结束条件：
     $$
     \begin{align}
-    \dot{\pmb x}(t_0)&amp;=\dot{\pmb x}(t_n)\
+    \dot{\pmb x}(t_0)&amp;=\dot{\pmb x}(t_n)\\
     \ddot{\pmb x}(t_0)&amp;=\ddot{\pmb x}(t_n)
     \end{align}
     $$</p>

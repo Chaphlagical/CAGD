@@ -69,3 +69,26 @@ $$
 
 ![](images/bezier2.png)
 
+### Homework#4: Curve Differential Geometry
+
+**Frenet Frame**
+$$
+\begin{aligned}
+		e_1(t)&=\frac{c'(t)}{\|c'(t)\|}\\
+		e_2(t)&=c''(t)-(c''(t),e_1)\cdot e_1\notag
+	\end{aligned}
+$$
+**Curvature**
+$$
+\kappa(t)=\frac{\|c'(t)\times c''(t)\|}{\|c'(t)\|^3}\notag
+$$
+**Involute**
+$$
+\eta(t)=c(t)+\frac{1}{\kappa(t)}e_2(t)\notag
+$$
+**Curvature Circle**
+$$
+c(t)=\eta(t)+(\cos t/\kappa, \sin t/\kappa)
+$$
+![4](images/4.png)
+

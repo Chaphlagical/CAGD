@@ -39,7 +39,7 @@ namespace Chaf
 	void BezierCurve::create(const std::vector<double>& input_x, const std::vector<double>& input_y, std::vector<double>& output_x, std::vector<double>& output_y, int samples)
 	{
 		double t = 0.0;
-		auto n = input_x.size();
+		auto n = static_cast<uint32_t>(input_x.size());
 		output_x.resize(samples);
 		output_y.resize(samples);
 
@@ -51,7 +51,7 @@ namespace Chaf
 			output_y[k] = 0;
 
 #pragma omp parallel for
-			for (uint32_t i = 0; i < n; i++)
+			for (int i = 0; i < n; i++)
 			{
 				output_x[k] += Bernstein(n - 1, i, t) * input_x[i];
 				output_y[k] += Bernstein(n - 1, i, t) * input_y[i];

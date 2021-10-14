@@ -7,6 +7,8 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 include(Init)
 Init_Project()
 
+find_package(OpenMP REQUIRED)
+
 add_subdirectory(Base)
 add_subdirectory(Framework)
 add_subdirectory(Homeworks)

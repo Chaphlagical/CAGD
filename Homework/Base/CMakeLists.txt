@@ -11,4 +11,5 @@ SetTarget(
         Engine
         Editor
         implot
+        OpenMP::OpenMP_CXX
 )

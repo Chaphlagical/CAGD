@@ -92,3 +92,30 @@ c(t)=\eta(t)+(\cos t/\kappa, \sin t/\kappa)
 $$
 ![4](images/4.png)
 
+### Homework#5: Bézier Spline
+
+* Interpolation: $\pmb b_{3i}=\pmb k_i$
+
+* $C^1$ Continuity:
+  $$
+  \dfrac{\pmb b_n^--\pmb b_{n-1}^-}{t_j-t_{j-1}}=\dfrac{\pmb b_1^+-\pmb b_0^+}{t_{j+1}-t_j}
+  $$
+
+* $C^2$ Continuity:
+  $$
+  \dfrac{\pmb b_n^--2\pmb b_{n-1}^-+\pmb b_{n-2}^-}{(t_j-t_{j-1})^2}=\dfrac{\pmb b_2^+-2\pmb b_1^++\pmb b_0^+}{(t_{j+1}-t_j)^2}
+  $$
+
+* End Condition:
+
+  * Natural
+  * Bessel
+  * Close
+
+* Parameterization
+
+  * Uniform
+  * Chordal
+  * Centripetal
+
+![4](images/bezier_spline.png)

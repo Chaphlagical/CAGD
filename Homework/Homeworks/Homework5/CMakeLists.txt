@@ -9,4 +9,5 @@ SetTarget(
         ${PROJECT_SOURCE_DIR}/vendor
     LIB
         Base
+        Homework2
 )

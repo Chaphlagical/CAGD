@@ -35,6 +35,12 @@ namespace Chaf
 			size_t select = 0;
 		};
 
+		bool m_ShowGeneratePoints = false;
+		bool m_ShowConnectLines = false;
+
+		int m_Parameterization = 0;
+		int m_EndCondition = 0;
+
 		DrawData m_Data;
 		BezierSpline m_BezierSpline;
 		bool m_Updated = true;

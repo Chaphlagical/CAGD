@@ -7,18 +7,18 @@ namespace Chaf
 	class BezierSpline
 	{
 	public:
-		enum class EndCondition
+		enum class EndCondition : int
 		{
-			Natural,
-			Bessel,
-			Close
+			Natural = 0,
+			Bessel = 1,
+			Close = 2
 		};
 
-		enum class Parameter
+		enum class Parameter :int
 		{
-			Uniform,
-			Chordal,
-			Centripetal
+			Uniform = 0,
+			Chordal = 1,
+			Centripetal = 2
 		};
 
 	public:
@@ -26,6 +26,6 @@ namespace Chaf
 
 		EndCondition end_condition = EndCondition::Natural;
 		Parameter parameter = Parameter::Uniform;
-		double uniform_val = 1;
+		float uniform_val = 1.f;
 	};
 }

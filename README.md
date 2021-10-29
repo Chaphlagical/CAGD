@@ -131,7 +131,7 @@ $$
   $$
   \begin{aligned}
   		N_i^1(t)&=\begin{cases}
-  		1,&t_i\leq t<t_{i+1}\\0,&\mathrm{otherwise}
+  		1,&t_i\leq t<t_{i+1}\\\\ 0,&\mathrm{otherwise}
   		\end{cases}\\
   		N_{i,k}(t)&=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\notag
   	\end{aligned}

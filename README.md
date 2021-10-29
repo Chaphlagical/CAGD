@@ -37,7 +37,7 @@ $$
 	\end{pmatrix}=
 	\begin{pmatrix}
 		y_1\\\\y_2\\\\\vdots\\\\y_n
-	\end{pmatrix}
+	\end{pmatrix}\notag
 $$
 
 ![](images/interpolation.png)
@@ -64,7 +64,7 @@ $$
 \begin{align}
 \pmb f(t)&=\sum_{i=0}^nB_i^{(n)}(t)\pmb p_i\\\\
 &=\sum_{i=0}^n\left(\begin{matrix}n\\\\i\end{matrix} \right)t^i(1-t)^{n-i}\pmb p_i
-\end{align}
+\end{align}\notag
 $$
 
 ![](images/bezier2.png)
@@ -119,3 +119,33 @@ $$
   * Centripetal
 
 ![4](images/bezier_spline.png)
+
+### Homework#6: B Spline
+
+* Given
+
+  *  $n+1$ control points: $\pmb k_0,\cdots,\pmb k_n$，
+  * Knot sequence $s_0,\cdots,s_n$
+
+* B spline basis:
+  $$
+  \begin{aligned}
+  		N_i^1(t)&=\begin{cases}
+  		1,&t_i\leq t<t_{i+1}\\0,&\mathrm{otherwise}
+  		\end{cases}\\
+  		N_{i,k}(t)&=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\notag
+  	\end{aligned}
+  $$
+
+* B spline:
+  $$
+  \pmb x(t)=\sum_{i=0}^nN_{i,k}(t)\cdot \pmb d_i
+  $$
+
+* Support:
+  * $C^2$ continuity points
+  * Line points
+  * Sharp points
+
+![](images/b_spline.png)
+

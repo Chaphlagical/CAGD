@@ -19,7 +19,7 @@ namespace Chaf
 	{
 		if (k == 1)
 		{
-			if (t >= T[i] && t < T[i + 1])
+			if ((t >= T[i] && t < T[i + 1]) || (t >= T[i] && t <= T[i + 1] && T[i + 1] == T.back()))
 			{
 				return 1.0;
 			}
@@ -263,11 +263,11 @@ namespace Chaf
 
 	void BSpline::genBSpline(const std::vector<double>& px, const std::vector<double>& py, std::vector<double>& x, std::vector<double>& y, size_t sample)
 	{
-		x.resize(sample);
-		y.resize(sample);
+		x.resize(sample+1);
+		y.resize(sample+1);
 
 #pragma omp parallel for
-		for (int i = 0; i < sample; i++)
+		for (int i = 0; i <= sample; i++)
 		{
 			double t = m_T.back() / static_cast<double>(sample) * static_cast<double>(i);
 			auto p = genBSpline(px, py, t);

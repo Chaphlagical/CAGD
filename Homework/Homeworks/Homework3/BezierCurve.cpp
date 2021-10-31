@@ -40,18 +40,18 @@ namespace Chaf
 	{
 		double t = 0.0;
 		auto n = static_cast<uint32_t>(input_x.size());
-		output_x.resize(samples);
-		output_y.resize(samples);
+		output_x.resize(samples + 1);
+		output_y.resize(samples + 1);
 
 #pragma omp parallel for
-		for (auto k = 0; k < samples; k++)
+		for (auto k = 0; k <= samples; k++)
 		{
 			t = static_cast<double>(k) / static_cast<double>(samples);
 			output_x[k] = 0;
 			output_y[k] = 0;
 
 #pragma omp parallel for
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i < (int)n; i++)
 			{
 				output_x[k] += Bernstein(n - 1, i, t) * input_x[i];
 				output_y[k] += Bernstein(n - 1, i, t) * input_y[i];

@@ -6,11 +6,11 @@ namespace Chaf
 	{
 		double t = 0.0;
 		int n = samples;
-		output_x.resize(n);
-		output_y.resize(n);
+		output_x.resize(n + 1);
+		output_y.resize(n + 1);
 
 #pragma omp parallel for
-		for (auto k = 0; k < n; k++)
+		for (auto k = 0; k <= n; k++)
 		{
 			double t = static_cast<double>(k) / static_cast<double>(n);
 			std::vector<double> brx(input_x);

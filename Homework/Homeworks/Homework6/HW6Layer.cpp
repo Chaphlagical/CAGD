@@ -29,28 +29,11 @@ namespace Chaf
 			if (m_BSpline.Control_Points_X.size() > 2)
 			{
 				m_BSpline.genDeBoorPoints(m_Data.gen_x, m_Data.gen_y);
-				/*if (m_EndCondition == (int)BezierSpline::EndCondition::Close)
-				{
-					m_Data.control_x.front() = m_Data.control_x.back();
-					m_Data.control_y.front() = m_Data.control_y.back();
-				}*/
-
-				//m_BezierSpline.createControlPoints(m_Data.control_x, m_Data.control_y, m_Data.gen_x, m_Data.gen_y);
 
 				m_Data.curve_x.clear();
 				m_Data.curve_y.clear();
 
 				m_BSpline.genBSpline(m_Data.gen_x, m_Data.gen_y, m_Data.curve_x, m_Data.curve_y);
-
-				/*for (size_t i = 0; i < m_Data.control_x.size() - 1; i++)
-				{
-					std::vector<double> x = { m_Data.gen_x[3 * i],m_Data.gen_x[3 * i + 1],m_Data.gen_x[3 * i + 2],m_Data.gen_x[3 * i + 3] };
-					std::vector<double> y = { m_Data.gen_y[3 * i],m_Data.gen_y[3 * i + 1],m_Data.gen_y[3 * i + 2],m_Data.gen_y[3 * i + 3] };
-					std::vector<double> control_x, control_y;
-					BezierCurve::create(x, y, control_x, control_y, 100);
-					m_Data.curve_x.insert(m_Data.curve_x.end(), control_x.begin(), control_x.end());
-					m_Data.curve_y.insert(m_Data.curve_y.end(), control_y.begin(), control_y.end());
-				}*/
 			}
 			else
 			{

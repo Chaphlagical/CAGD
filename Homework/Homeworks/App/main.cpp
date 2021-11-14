@@ -6,6 +6,7 @@
 #include "../Homework4/HW4Layer.h"
 #include "../Homework5/HW5Layer.h"
 #include "../Homework6/HW6Layer.h"
+#include "../Homework7/HW7Layer.h"
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
 	app->PushLayer(new Chaf::HW4Layer);
 	app->PushLayer(new Chaf::HW5Layer);
 	app->PushLayer(new Chaf::HW6Layer);
+	app->PushLayer(new Chaf::HW7Layer);
 
 	app->Run();
 

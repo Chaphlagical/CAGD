@@ -152,6 +152,6 @@ $$
 ### Homework#7: Polar Form & Blossoming
 
 $$
-f(t_1,\cdots,t_n)=\sum_{i=0}^nc_i\begin{pmatrix}n\\ i\end{pmatrix}^{-1}\sum_{S\subseteq \{1,\cdots,n\},|S|=i}\prod_{j\in S}t_j
+f(t_1,\cdots,t_n)=\sum_{i=0}^nc_i\begin{pmatrix}n\\\\ i\end{pmatrix}^{-1}\sum_{S\subseteq \{1,\cdots,n\},|S|=i}\prod_{j\in S}t_j
 $$
 

@@ -102,7 +102,6 @@ namespace Chaf
 
 		if (ImPlot::BeginPlot("Curve", "x", "y", ImVec2(-1, -1), ImPlotFlags_AntiAliased))
 		{
-			uint32_t index = 0;
 			ImPlotStyle& style = ImPlot::GetStyle();
 
 			style.LineWeight = 4.f;

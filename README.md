@@ -40,7 +40,7 @@ $$
 	\end{pmatrix}\notag
 $$
 
-![](images/interpolation.png)
+![](images/1.gif)
 
 ### Homework#2: Bézier Curve(De Casteljau Algorithm)
 
@@ -56,7 +56,7 @@ $$
 	\end{aligned}
 $$
 
-![](images/bezier1.png)
+![](images/2.gif)
 
 ### Homework#3: Bézier Curve(Bernstein Basis)
 
@@ -67,7 +67,7 @@ $$
 \end{align}\notag
 $$
 
-![](images/bezier2.png)
+![](images/3.gif)
 
 ### Homework#4: Curve Differential Geometry
 
@@ -90,7 +90,7 @@ $$
 $$
 c(t)=\eta(t)+(\cos t/\kappa, \sin t/\kappa)
 $$
-![4](images/4.png)
+![4](images/4.gif)
 
 ### Homework#5: Bézier Spline
 
@@ -118,7 +118,7 @@ $$
   * Chordal
   * Centripetal
 
-![4](images/bezier_spline.png)
+![4](images/5.gif)
 
 ### Homework#6: B Spline
 
@@ -147,7 +147,7 @@ $$
   * Line points
   * Sharp points
 
-![](images/b_spline.png)
+![](images/6.gif)
 
 ### Homework#7: Polar Form & Blossoming
 
@@ -164,3 +164,5 @@ $$
 \pmb f^{(eucl)}(t)&=\dfrac{\sum_{i=0}^nB^{(d)}_i(t)\begin{pmatrix}p_i^{(1)}\\\\ \vdots\\\\p^{(n)}_i \end{pmatrix}}{\sum_{i=0}^nB^{(d)}_i(t)p_i^{(n+1)}}
 \end{aligned}
 $$
+![](images/8.gif)
+

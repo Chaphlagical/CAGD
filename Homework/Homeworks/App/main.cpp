@@ -7,6 +7,10 @@
 #include "../Homework5/HW5Layer.h"
 #include "../Homework6/HW6Layer.h"
 #include "../Homework7/HW7Layer.h"
+#include "../Homework8/HW8Layer.h"
+
+#include <Scene/maincamera_layer.h>
+#include <Scene/scene_layer.h>
 
 int main()
 {
@@ -21,6 +25,10 @@ int main()
 	app->PushLayer(new Chaf::HW5Layer);
 	app->PushLayer(new Chaf::HW6Layer);
 	app->PushLayer(new Chaf::HW7Layer);
+	app->PushLayer(new Chaf::MainCameraLayer);
+	app->PushLayer(new Chaf::SceneLayer);
+	app->PushLayer(new Chaf::HW8Layer);
+
 
 	app->Run();
 

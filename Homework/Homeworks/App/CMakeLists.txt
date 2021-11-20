@@ -12,4 +12,5 @@ SetTarget(
         Homework5
         Homework6
         Homework7
+        Homework8
 )

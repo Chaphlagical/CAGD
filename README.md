@@ -160,7 +160,7 @@ $$
 Rational Bézier curves:
 
 $$
-\pmb f^{(eucl)}(t)=\frac{\sum_{i=0}^nB^{(d)}_i(t)}{\sum_{i=0}^nB^{(d)}_i(t)p_i^{(n+1)}}
+\pmb f^{(eucl)}(t)=\sum_{i=0}^nB^{(d)}_i(t)
 $$
 ![](images/8.gif)
 

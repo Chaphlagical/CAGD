@@ -158,6 +158,7 @@ $$
 ### Homework#8: Rational Spline Curves
 
 Rational Bézier curves:
+
 $$
 \begin{aligned}
 \pmb f^{(hom)}(t)&=\sum_{i=0}^nB_i^{(d)}(t)\pmb p_i,\pmb p_i\in \mathbb R^{n+1}\\\\

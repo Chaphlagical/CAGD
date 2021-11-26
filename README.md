@@ -157,5 +157,21 @@ $$
 
 ### Homework#8: Rational Spline Curves
 
+$$
+\pmb f(t)=\sum_{i=0}^n R_{i,n}(t)\pmb p_i
+$$
+
+with:
+$$
+R_{i,n}(t)=\frac{B_{n,i}(t)w_i}{\sum_{j=0}^nB_{n,j}(t)w_j}
+$$
 ![](images/8.gif)
+
+### Homework#9: Spline Surfaces
+
+$$
+\pmb f(u,v)=\frac{\sum_{i=0}^d\sum_{j=0}^dB_i^{(d)}(u)B_j^{(d)}(v)\omega_{i,j}\pmb p_{i,j}}{\sum_{i=0}^d\sum_{j=0}^dB_i^{(d)}(u)B_j^{(d)}(v)\omega_{i,j}}
+$$
+
+![](images/9.gif)
 

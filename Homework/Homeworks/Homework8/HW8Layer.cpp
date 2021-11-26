@@ -41,8 +41,6 @@ namespace Chaf
 
 		auto* scene_layer = SceneLayer::GetInstance();
 		auto& scene = scene_layer->GetScene();
-		scene->SetLineMode(true);
-		scene_layer->SetShowGrid(false);
 		m_Mesh = &scene->CreateEntity().AddComponent<MeshComponent>();
 	}
 
@@ -58,6 +56,11 @@ namespace Chaf
 
 	void HW8Layer::OnImGuiRender()
 	{
+		auto* scene_layer = SceneLayer::GetInstance();
+		auto& scene = scene_layer->GetScene();
+		scene->SetLineMode(true);
+		scene_layer->SetShowGrid(false);
+
 		ImGui::Begin("Homework 8");
 
 		for (auto& [key, val] : m_questions)
@@ -345,9 +348,6 @@ namespace Chaf
 					indices.push_back(i + 102);
 					indices.push_back(i + 101);
 				}
-
-				auto* scene_layer = SceneLayer::GetInstance();
-				auto& scene = scene_layer->GetScene();
 
 				if (m_Mesh->Mesh->GetVerticesNum() == 0)
 				{

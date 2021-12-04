@@ -175,3 +175,19 @@ $$
 
 ![](images/9.gif)
 
+ ### Homework#10: Loop Subdivision
+
+* Update old vertices
+  $$
+  O_{new}=\frac{1}{8}(C+D)+\frac{3}{8}(A+B)
+  $$
+
+* Update new vertices
+  $$
+  \tilde O=(1-nu)O+u\sum_{i=1}^nv_i
+  $$
+
+  * n: vertex degree
+  * u: $3/16$ if $n=3$, $3/(8n)$ otherwise
+
+![](images/10.gif)

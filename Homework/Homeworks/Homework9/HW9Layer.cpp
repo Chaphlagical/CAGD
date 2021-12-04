@@ -32,8 +32,6 @@ namespace Chaf
 		m_Material->DiffuseTexture = Texture2D::Create(std::string(PROJECT_SOURCE_DIR) + "../assets/texture/texture.png");
 		auto& light = entity.AddComponent<LightComponent>();
 		light.SetLight(LightType::LightType_Basic);
-
-		m_Mesh->Mesh = CreateRef<TriMesh>();
 	}
 
 	void HW9Layer::OnDetach()
@@ -66,7 +64,7 @@ namespace Chaf
 			if (m_p2)m_p1 = false;
 		}
 
-		if (m_Mesh->Mesh->GetVerticesNum() == 0)
+		if (m_Mesh->Mesh && m_Mesh->Mesh->GetVerticesNum() == 0)
 		{
 			if (m_p1)
 			{

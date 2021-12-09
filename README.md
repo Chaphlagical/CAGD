@@ -194,5 +194,9 @@ $$
 
 ### Homework#11: Tutte/Floater Parameterization
 
+$$
+v_i-\sum_{j\in\pmb N(i)}\lambda_{ij}v_j=0,\ i=0,1,\cdots,n
+$$
+
 ![](images/11.gif)
 

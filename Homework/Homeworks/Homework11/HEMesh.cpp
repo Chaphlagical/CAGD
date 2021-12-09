@@ -36,48 +36,6 @@ namespace Chaf
 			auto* face = createFace(vertices[indices[0]], vertices[indices[1]], vertices[indices[2]]);
 			this->faces.push_back(face);
 		}
-
-		//// Add all faces
-		//std::unordered_map<std::pair<uint32_t, uint32_t>, HalfEdge*, pair_hash> edge_map;
-		//for (uint32_t i = 0; i < mesh.m_Indices.size(); i += 3)
-		//{
-		//	uint32_t indices[3] = { mesh.m_Indices[i], mesh.m_Indices[i + 1], mesh.m_Indices[i + 2] };
-		//	HFace* face = create<HFace>();
-		//	HalfEdge* edges[3];
-		//	for (uint32_t j = 0; j < 3; j++)
-		//	{
-		//		HalfEdge* he = nullptr;
-		//		HalfEdge* he_op = nullptr;
-		//		auto pair = std::make_pair(indices[j], indices[(j + 1) % 3]);
-		//		auto pair_op = std::make_pair(indices[(j + 1) % 3], indices[j]);
-		//		if (edge_map.find(pair) != edge_map.end())
-		//		{
-		//			he = edge_map[pair];
-		//		}
-		//		else
-		//		{
-		//			he = create<HalfEdge>();
-		//			he_op = create<HalfEdge>();
-		//			he->v = vertices[indices[(j + 1) % 3]];
-		//			he->pair = he_op;
-		//			he->v->he = he;
-		//			he_op->v = vertices[indices[j]];
-		//			he_op->pair = he;
-		//			he_op->v->he = he_op;
-		//			edge_map[pair] = he;
-		//			edge_map[pair_op] = he_op;
-		//		}
-		//		edges[j] = he;
-		//	}
-		//	for (uint32_t j = 0; j < 3; j++)
-		//	{
-		//		edges[j]->next = edges[(j + 1) % 3];
-		//		edges[j]->face = face;
-		//		this->edges.push_back(edges[j]);
-		//	}
-		//	face->he = edges[0];
-		//	faces.push_back(face);
-		//}
 	}
 
 	HEMesh::~HEMesh()

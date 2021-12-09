@@ -191,3 +191,8 @@ $$
   * u: $3/16$ if $n=3$, $3/(8n)$ otherwise
 
 ![](images/10.gif)
+
+### Homework#11: Tutte/Floater Parameterization
+
+![](images/11.gif)
+

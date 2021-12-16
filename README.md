@@ -200,3 +200,11 @@ $$
 
 ![](images/11.gif)
 
+### Homework#12: RBF Mesh Deformation
+
+$$
+\pmb f(\pmb x)=\sum_j\pmb w_j\varphi(\|\pmb c_j-\pmb x\|)+\pmb p(\pmb x)
+$$
+
+![](images/12.gif)
+

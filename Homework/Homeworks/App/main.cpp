@@ -9,7 +9,7 @@
 #include "../Homework7/HW7Layer.h"
 #include "../Homework8/HW8Layer.h"
 #include "../Homework9/HW9Layer.h"
-//#include "../Homework10/HW10Layer.h"
+#include "../Homework10/HW10Layer.h"
 #include "../Homework11/HW11Layer.h"
 
 #include <Scene/maincamera_layer.h>
@@ -27,12 +27,13 @@ int main()
 	app->PushLayer(new Chaf::HW4Layer);
 	app->PushLayer(new Chaf::HW5Layer);
 	app->PushLayer(new Chaf::HW6Layer);
-	app->PushLayer(new Chaf::HW7Layer);
-	app->PushLayer(new Chaf::MainCameraLayer);
-	app->PushLayer(new Chaf::SceneLayer);
-	app->PushLayer(new Chaf::HW8Layer);
+	//app->PushLayer(new Chaf::HW7Layer);
+	//app->PushLayer(new Chaf::MainCameraLayer);
+	//app->PushLayer(new Chaf::SceneLayer);
+	//app->PushLayer(new Chaf::HW8Layer);
+	//app->PushLayer(new Chaf::HW9Layer);
 	//app->PushLayer(new Chaf::HW10Layer);
-	app->PushLayer(new Chaf::HW11Layer);
+	//app->PushLayer(new Chaf::HW11Layer);
 
 
 	app->Run();

@@ -252,6 +252,9 @@ namespace Chaf
 			break;
 		}
 
+		std::cout << A << std::endl
+			<< "===========" << std::endl;
+
 		Eigen::MatrixXd res = A.colPivHouseholderQr().solve(b);
 
 		for (size_t i = 0; i < x.size(); i++)

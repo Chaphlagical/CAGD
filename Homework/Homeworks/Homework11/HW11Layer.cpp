@@ -73,7 +73,7 @@ namespace Chaf
 		//glEnable(GL_CULL_FACE);
 		scene_layer->SetShowGrid(false);
 
-		ImGui::Begin("Homework 10");
+		ImGui::Begin("Homework 11");
 		
 		if (ImGui::Button("Open a model"))
 			ifd::FileDialog::Instance().Open("ModelOpenDialog", "Open a model", "mode file (*.obj){.obj}");
